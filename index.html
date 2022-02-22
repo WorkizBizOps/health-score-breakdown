@@ -1,7 +1,176 @@
 <html>
-  <head>
-  </head>
-  <body>
-    <h1>test</h1>
-  </body>
+
+<head>
+    <style>
+        .styled-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            /* min-width: 500px; */
+            width: 500px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            margin-left: auto;
+            margin-right: auto;
+            table-layout: fixed;
+        }
+
+        .styled-table thead tr {
+            background-color: #3A4B52;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+
+        .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .styled-table tbody tr:last-of-type {
+            border-bottom: 2px solid #3A4B52;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table class="styled-table">
+
+        <tbody>
+
+            <thead>
+                <tr>
+                    <th width="200px">Company Name</th>
+                    <th id="company_name"></th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Health Score</td>
+                <td id="health_score"></td>
+            </tr>
+            <tr>
+                <td>Company Health</td>
+                <td id="company_health"></td>
+            </tr>
+            <tr>
+                <td>Company Tier</td>
+                <td id="company_tier"></td>
+            </tr>
+            <tr>
+                <td>Company Age</td>
+                <td id="company_age"></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th width="200px">Product</th>
+                <th>Score</th>
+                <th>Stats</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Jobs</td>
+                <td id="job_score"></td>
+                <td id="change_in_jobs"></td>
+            </tr>
+            <tr>
+                <td>Activites</td>
+                <td id="activities_score"></td>
+                <td id="change_in_activities"></td>
+            </tr>
+            <tr>
+                <td>Payments</td>
+                <td id="payments_score"></td>
+                <td id="change_in_payments"></td>
+            </tr>
+            <tr>
+                <td>Calls</td>
+                <td id="calls_score"></td>
+                <td id="change_in_calls"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th width="200px">Relationship</th>
+                <th>Score</th>
+                <th>Last 60 days</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Intercom Conversations</td>
+                <td id="intercom_conversations_score"></td>
+                <td id="intercom_conversations"></td>
+            </tr>
+            <tr>
+                <td>Intercom Rating</td>
+                <td id="intercom_rating_score"></td>
+                <td id="average_intercom_rating"></td>
+            </tr>
+            <tr>
+                <td>Jira Tickets</td>
+                <td id="jira_tickets_score"></td>
+                <td id="jira_tickets"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function searchToObject() {
+            var pairs = window.location.search.substring(1).split("&"),
+                obj = {},
+                pair,
+                i;
+
+            for (i in pairs) {
+                if (pairs[i] === "") continue;
+
+                pair = pairs[i].split("=");
+                obj[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+            }
+
+            return obj;
+        }
+
+        const params = searchToObject()
+
+        for (const key in params) {
+            document.getElementById(key).innerHTML = params[key]
+        }
+
+        function ch() {
+            switch (params.company_health) {
+
+                case "High":
+                    return "green"
+                    break;
+
+                case "Medium":
+                    return "orange"
+                    break;
+
+                case "Low":
+                    return "red"
+                    break;
+
+            }
+        }
+        document.getElementById("company_health").style.color=ch();
+    </script>
+</body>
+
 </html>
