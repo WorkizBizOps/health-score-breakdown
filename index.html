@@ -16,7 +16,13 @@
         }
 
         .styled-table thead tr {
-            background-color: #3A4B52;
+
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .styled-table2 thead tr {
+            background-color: #ffd401;
             color: #ffffff;
             text-align: left;
         }
@@ -37,7 +43,7 @@
         .styled-table tbody tr:last-of-type {
             border-bottom: 2px solid #3A4B52;
         }
-        /* Tooltip container */
+        /* Tooltip container */ 
 .tooltip {
   position: relative;
   display: inline-block;
@@ -83,9 +89,9 @@
 
         <tbody>
 
-            <thead>
+            <thead style="background-color: #ffd401;">
                 <tr>
-                    <th width="200px" id="company_name">Company Name</th>
+                    <th width="200px" id="company_name" style="color: #3A4B52;">Company Name</th>
                     <th></th>
                 </tr>
             </thead>
@@ -110,7 +116,7 @@
         </tbody>
     </table>
     <table class="styled-table">
-        <thead>
+        <thead style="background-color: #3A4B52;">
             <tr>
                 <th width="200px">Product</th>
                 <th>Score</th>
@@ -142,7 +148,7 @@
     </table>
 
     <table class="styled-table">
-        <thead>
+        <thead style="background-color: #3A4B52;">
             <tr>
                 <th width="200px">Relationship</th>
                 <th>Score</th>
