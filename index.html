@@ -91,7 +91,7 @@
         /* Tooltip text */
         .tooltip .tooltiptext {
             visibility: hidden;
-            width: 310px;
+            width: 400px;
             background-color: #555;
             color: #fff;
             text-align: center;
@@ -137,8 +137,7 @@
                 <td>Health Score</td>
                 <td>
                     <div class="tooltip"><span id="health_score"></span>/100
-                        <span class="tooltiptext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                        <span class="tooltiptext">The score is based on the below metrics. Every account starts with a score of 50, that can increase or decrease based on the metrics below. A score of 60 or higher is healthy, and a score of 45 or lower is unhealthy.                        </span>
                     </div>
                 </td>
             </tr>
@@ -167,22 +166,37 @@
         <tbody>
             <tr>
                 <td>Jobs</td>
-                <td id="job_score"></td>
+                <td>
+                    <div class="tooltip"><span id="job_score"></span>
+                        <span class="tooltiptext">The score is based on the percent of change in jobs in the last 30
+                            days and the previous 30 days.
+                        </span>
+                    </div>
+                </td>
                 <td id="change_in_jobs"></td>
             </tr>
             <tr>
                 <td>Activites</td>
-                <td id="activities_score"></td>
+                <td>
+                    <div class="tooltip"><span id="activities_score"></span>
+                        <span class="tooltiptext">The score is based on the percent of change in jobs in the last 30 days and the previous 30 days.
+                        </span>
+                    </div>
+                </td>
                 <td id="change_in_activities"></td>
             </tr>
             <tr>
                 <td>Payments</td>
-                <td id="payments_score"></td>
+                <td>
+                    <div class="tooltip"><span id="payments_score"></span><span class="tooltiptext">Only relevant for accounts with over 5 transactions in the last 60 days. The score is based on the percent of change in jobs in the last 30 days and the previous 30 days.                    </span></div>
+                </td>
                 <td id="change_in_payments"></td>
             </tr>
             <tr>
                 <td>Calls</td>
-                <td id="calls_score"></td>
+                <td>
+                    <div class="tooltip"><span id="calls_score"></span><span class="tooltiptext">Only relevant for accounts with over 20 calls in the last 60 days. The score is based on the percent of change in jobs in the last 30 days and the previous 30 days.                    </span></div>
+                </td>
                 <td id="change_in_calls"></td>
             </tr>
         </tbody>
@@ -199,17 +213,26 @@
         <tbody>
             <tr>
                 <td>Intercom Conversations</td>
-                <td id="intercom_conversations_score"></td>
+                <td>
+                    <div class="tooltip"><span id="intercom_conversations_score"></span><span
+                            class="tooltiptext">The score is based on the total number of Intercom conversations in the last 60 days.                        </span></div>
+                </td>
                 <td id="intercom_conversations"></td>
             </tr>
             <tr>
                 <td>Intercom Rating</td>
-                <td id="intercom_rating_score"></td>
+                <td>
+                    <div class="tooltip"><span id="intercom_rating_score"></span><span class="tooltiptext">The score is based on the average rating on Intercom conversations in the last 60 days.                    </span>
+                    </div>
+                </td>
                 <td id="average_intercom_rating"></td>
             </tr>
             <tr>
                 <td>Jira Tickets</td>
-                <td id="jira_tickets_score"></td>
+                <td>
+                    <div class="tooltip"><span id="jira_tickets_score"></span><span class="tooltiptext">The score is based on the total number of Jira tickets in the last 60 days.	</span>
+                    </div>
+                </td>
                 <td id="jira_tickets"></td>
             </tr>
         </tbody>
