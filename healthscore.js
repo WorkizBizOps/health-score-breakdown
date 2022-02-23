@@ -18,7 +18,8 @@
     const params = searchToObject()
     
     for (const key in params) {
-       if (key !== "accountId") {document.getElementById(key).innerHTML = params[key]}
+        if (key == "company_name") {document.getElementById(key).innerHTML = decodeURIComponent(params[key])} else
+       if (key !== "accountId") {document.getElementById(key).innerHTML = params[key]} 
     }
     
     function ch() {
