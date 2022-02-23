@@ -1,7 +1,41 @@
 <html>
 
 <head>
+
     <style>
+        /* CSS */
+        .button-1 {
+            background-color: #ffd401;
+            border-radius: 8px;
+            border-style: none;
+            box-sizing: border-box;
+            color: #000000;
+            cursor: pointer;
+            display: inline-block;
+            font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            height: 40px;
+            line-height: 20px;
+            list-style: none;
+            margin: 0;
+            outline: none;
+            padding: 10px 16px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            transition: color 100ms;
+            vertical-align: baseline;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .button-1:hover,
+        .button-1:focus {
+            background-color: #ffd401;
+        }
+
         .styled-table {
             border-collapse: collapse;
             margin: 25px 0;
@@ -13,7 +47,7 @@
             margin-left: auto;
             margin-right: auto;
             table-layout: fixed;
-            
+
         }
 
         .styled-table thead tr {
@@ -44,43 +78,45 @@
         .styled-table tbody tr:last-of-type {
             border-bottom: 2px solid #3A4B52;
         }
-        /* Tooltip container */ 
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-}
 
-/* Tooltip text */
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 310px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  font-size: 13px;
+        /* Tooltip container */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+            /* If you want dots under the hoverable text */
+        }
 
-  /* Position the tooltip text */
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -60px;
+        /* Tooltip text */
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 310px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+            font-size: 13px;
 
-  /* Fade in tooltip */
-  opacity: 0;
-  transition: opacity 0.3s;
-}
+            /* Position the tooltip text */
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+
+            /* Fade in tooltip */
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
 
 
 
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
+        /* Show the tooltip text when you mouse over the tooltip container */
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 
@@ -98,9 +134,12 @@
             </thead>
             <tr>
                 <td>Health Score</td>
-                <td><div class="tooltip"><span id="health_score"></span>/100
-                    <span class="tooltiptext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                  </div></td>
+                <td>
+                    <div class="tooltip"><span id="health_score"></span>/100
+                        <span class="tooltiptext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Account Health</td>
@@ -112,7 +151,7 @@
             </tr>
             <tr>
                 <td>Account Age</td>
-                <td><span  id="company_age"></span> Month(s)</td>
+                <td><span id="company_age"></span> Month(s)</td>
             </tr>
         </tbody>
     </table>
@@ -174,49 +213,10 @@
             </tr>
         </tbody>
     </table>
-
-    <script>
-        function searchToObject() {
-            var pairs = window.location.search.substring(1).split("&"),
-                obj = {},
-                pair,
-                i;
-
-            for (i in pairs) {
-                if (pairs[i] === "") continue;
-
-                pair = pairs[i].split("=");
-                obj[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
-            }
-
-            return obj;
-        }
-
-        const params = searchToObject()
-
-        for (const key in params) {
-            document.getElementById(key).innerHTML = params[key]
-        }
-
-        function ch() {
-            switch (params.company_health) {
-
-                case "High":
-                    return "green"
-                    break;
-
-                case "Medium":
-                    return "orange"
-                    break;
-
-                case "Low":
-                    return "red"
-                    break;
-
-            }
-        }
-        document.getElementById("company_health").style.color=ch();
-    </script>
+    <div align="center">
+        <button class="button-1" id="customerAnalysisButton" role="button">View in Customer Analysis</button>
+    </div>
+    <script src="/healthscore.js"></script>
 </body>
 
 </html>
