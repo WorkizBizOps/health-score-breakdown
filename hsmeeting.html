@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+function searchToObject() {
+  var pairs = window.location.search.substring(1).split("&"),
+    obj = {},
+    pair,
+    i;
+  for ( i in pairs ) {
+    if ( pairs[i] === "" ) continue;
+    pair = pairs[i].split("=");
+    obj[ decodeURIComponent( pair[0] ) ] = decodeURIComponent( pair[1] );
+  }
+  return obj;
+}
+const qp = searchToObject()
+
+
+window.addEventListener('message', event => {
+if (event.data.meetingBookSucceeded == true) {
+    fetch('https://hook.us1.make.com/alagv5f2ofe7bshiyb2x2l0xkkwhibsr', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: qp
+})
+
+;
+    console.log("Meeting Scheudled Successfuly")
+}
+   }
+);
+
+    </script>
+    <!-- Start of Meetings Embed Script -->
+    <div class="meetings-iframe-container" data-src="https://meetings-eu1.hubspot.com/aviv-kasuto/testing?embed=true">
+    </div>
+    <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+    <!-- End of Meetings Embed Script -->
+</body>
+
+</html>
