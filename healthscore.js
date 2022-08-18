@@ -39,5 +39,5 @@
     
         }
     }
-    document.getElementById("customerAnalysisButton").setAttribute("onclick", "window.open('https://insights.workiz.com/app/main#/dashboards/5e95588485e0510ce4590ede?search=' + params.accountId,'_blank')");
+    document.getElementById("customerAnalysisButton").setAttribute("onclick", "window.open('https://insights.workiz.com/app/main#/dashboards/622fb7565894b70037776ed1?search=' + params.accountId,'_blank')");
     document.getElementById("company_health").style.color = ch();
